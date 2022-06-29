@@ -1,4 +1,4 @@
-package test.mvc.domain;
+package test.mvc.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,27 +12,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Review {
+public class ReviewDTO {
 
-	@Id
+
 	private String reviewId;
-	
-	@Column
 	private String content;
-	
-	@Column
-	private String attachedPhotoIds;
-	
-	@ManyToOne
-	@JoinColumn(name = "place_fk")
-	private Place place;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private Users users;
+	private String [] attachedPhotoIds;
+	private String userId;
+	private String placeId;
+
 }

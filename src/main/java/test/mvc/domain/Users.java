@@ -33,8 +33,8 @@ public class Users {
 	@OneToOne(mappedBy = "users")
 	private UserPoint userPoint;
 	
-	@OneToOne(mappedBy = "users")
-	private Review review;
+	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "users" , cascade = CascadeType.REMOVE  , orphanRemoval = true)
+	private List<Review> review;
 	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "users" , cascade = CascadeType.REMOVE  , orphanRemoval = true)
 	private List<UserPointStatus> userPointStatus;

@@ -27,7 +27,7 @@ public class Place {
 	@Id
 	private String placeId;
 	
-	@Column
+	@Column//0이면 최초 등록 1이면 기존 등록
 	private int reviewCheck;
 	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "place" , cascade = CascadeType.REMOVE  , orphanRemoval = true)

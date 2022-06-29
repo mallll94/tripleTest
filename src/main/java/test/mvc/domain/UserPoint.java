@@ -6,10 +6,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.DynamicInsert;
 
@@ -26,6 +29,8 @@ import lombok.Setter;
 public class UserPoint {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_point_seq")
+	@SequenceGenerator(sequenceName = "user_point_seq", allocationSize = 1, name = "user_point_seq")
 	private Long userPointId;
 	
 	@Column
