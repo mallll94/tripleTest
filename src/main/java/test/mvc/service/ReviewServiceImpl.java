@@ -31,7 +31,7 @@ public class ReviewServiceImpl implements ReviewService {
 	private final UserPointStatusRepository pointStatusRep;
 	
 	@Override
-	public int insertReview(ReviewDTO dto) {	
+	public void insertReview(ReviewDTO dto) {	
 		Users users = usersRep.findById(dto.getUserId()).orElse(null);
 		Place place = placeRep.findById(dto.getPlaceId()).orElse(null);
 		
@@ -61,13 +61,12 @@ public class ReviewServiceImpl implements ReviewService {
 			System.out.println("이미 작성");
 			new RuntimeException("이미 작성했습니다.");
 		}
-		
-		return 0;
+
 		
 	}
 
 	@Override
-	public int updateReview(ReviewDTO dto) {
+	public void updateReview(ReviewDTO dto) {
 		
 		Users users = usersRep.findById(dto.getUserId()).orElse(null);
 		String photoDB = "";
@@ -84,11 +83,11 @@ public class ReviewServiceImpl implements ReviewService {
 		}
 		point =updatePoint(point, dto, photoDB);
 		statusPoint(point, users,dto.getPlaceId());
-		return 0;
+
 	}
 
 	@Override
-	public int deleteReview(ReviewDTO dto) {	
+	public void deleteReview(ReviewDTO dto) {	
 		Review review=reviewRep.findById(dto.getReviewId()).orElse(null);
 		Users users = usersRep.findById(dto.getUserId()).orElse(null);
 		
@@ -96,20 +95,15 @@ public class ReviewServiceImpl implements ReviewService {
 
 		statusPoint(point, users,dto.getPlaceId());
 		reviewRep.deleteById(dto.getReviewId());
-		return 0;
+
 	}
 	
 	@Override
-	public List<Review> selectReview(String placeId) {
-		
+	public List<Review> selectReview(String placeId) {	
 		QReview review = QReview.review;
-		BooleanBuilder builder = new BooleanBuilder();
-		
+		BooleanBuilder builder = new BooleanBuilder();	
 		builder.and(review.place.placeId.eq(placeId));
 		List<Review> reviews=(List<Review>) reviewRep.findAll(builder);
-		
-		reviews.forEach(b->System.out.println(b.getContent()));
-		
 		return reviews;
 	}
 
@@ -184,10 +178,8 @@ public class ReviewServiceImpl implements ReviewService {
 			}
 		}else {
 			if(dto.getAttachedPhotoIds().length!=0) {
-				System.out.println(1);
 				review.setAttachedPhotoIds(photoDB);
 			}else {
-				System.out.println(2);
 				review.setAttachedPhotoIds("");
 				result -=1;
 			}
@@ -196,28 +188,17 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	//리뷰전체 삭제시 포인트 계산
-		public int deletePoint(ReviewDTO dto,Review review) {
-			int point = 0;
-			
-			if(dto.getUserId().equals(review.getPlace().getReviewCheck())) {
-				review.getPlace().setReviewCheck(null);
-				point -=1;
-			}
-			if(review.getContent()!=null||!review.getContent().equals(""))point-=1;
-			if(review.getAttachedPhotoIds() !=null||!review.getAttachedPhotoIds().equals(""))point-=1;
-			
-			
-			
-			return point;
-		}
-
+	public int deletePoint(ReviewDTO dto,Review review) {
+		int point = 0;
 		
-	
+		if(dto.getUserId().equals(review.getPlace().getReviewCheck())) {
+			review.getPlace().setReviewCheck(null);
+			point -=1;
+		}
+		if(review.getContent()!=null||!review.getContent().equals(""))point-=1;
+		if(review.getAttachedPhotoIds() !=null||!review.getAttachedPhotoIds().equals(""))point-=1;
 
-	
-	
-	
-	
-	
-	
+		return point;
+	}
+
 }

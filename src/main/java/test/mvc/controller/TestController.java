@@ -23,7 +23,7 @@ public class TestController {
 	
 	
 	@RequestMapping("/event")
-	public String review(String type,String action,String reviewId,String content,String [] attachedPhotoIds,String userId, String placeId) {
+	public void review(String type,String action,String reviewId,String content,String [] attachedPhotoIds,String userId, String placeId) {
 		ReviewDTO dto = new ReviewDTO(reviewId, content, attachedPhotoIds, userId, placeId);
 		
 		if(action.equals("ADD")) {
@@ -34,24 +34,14 @@ public class TestController {
 			reviewService.deleteReview(dto);
 		}
 
-		return "dd";
 	}
-	
-	
-	
-	
+
 	@RequestMapping("/select")
 	public Map<String, Object> pointSelectAll(String userId,String placeId) {
-		System.out.println("들어오긴한거지?");
 		Map<String, Object> map = new HashMap<String, Object>();
 		int myPoint = reviewService.selectPoint(userId);
-		List<UserPointStatus> myPointList = reviewService.selectPointStatusList(userId);
-		
+		List<UserPointStatus> myPointList = reviewService.selectPointStatusList(userId);		
 		List<Review> reviews = reviewService.selectReview(placeId);
-		
-		
-		
-		
 		map.put("review", reviews);
 		map.put("myPoint", myPoint);
 		map.put("status", myPointList);

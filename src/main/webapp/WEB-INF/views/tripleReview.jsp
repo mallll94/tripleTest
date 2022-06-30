@@ -27,7 +27,7 @@ $(function(){
 			type:"post",
 			traditional: true,
 			dataType:"json",
-			data: {userId: "3ede0ef2-92b7-4817-a5f3-0c575361f744", placeId: "2e4baf1c-5acb-4efb-a1af-eddada31uuuu"},
+			data: {userId: "3ede0ef2-92b7-4817-a5f3-0c575361f745", placeId: "2e4baf1c-5acb-4efb-a1af-eddada31uuuu"},
    			success :function(result){
    				
    				var status = "<table >";
@@ -111,7 +111,7 @@ $(function(){
 
 <h1>트리플 마일리지서비스 테스트</h1>
 <hr>
-<h3><span id ="id">userId : 3ede0ef2-92b7-4817-a5f3-0c575361f744</span></h3>
+<h3><span id ="id">userId : 3ede0ef2-92b7-4817-a5f3-0c575361f745</span></h3>
 <h3><span id="point"></span></h3>
 <hr>
 <h3>포인트 이력</h3>
@@ -119,7 +119,7 @@ $(function(){
 <hr>
 <h3>리뷰</h3>
 <div id="table"></div>
-아이디 : <input type="text" id="userid" value="3ede0ef2-92b7-4817-a5f3-0c575361f744" style="width: 300px">
+아이디 : <input type="text" id="userid" value="3ede0ef2-92b7-4817-a5f3-0c575361f745" style="width: 300px">
 내용 : <input type="text" name="content" value="" >
 사진 : <input type="text" name="attachedPhotoIds" value="" style="width: 500px">
 <button name="event" value="ADD">등록</button>  <button name="event" value="MOD">수정</button> <button name="event" value="DELETE">전체삭제</button>

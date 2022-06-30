@@ -11,17 +11,17 @@ public interface ReviewService {
 	/**
 	 * 등록
 	 * */
-	public int insertReview(ReviewDTO dto);
+	public void insertReview(ReviewDTO dto);
 	
 	/**
 	 * 수정
 	 * */
-	public int updateReview(ReviewDTO dto);
+	public void updateReview(ReviewDTO dto);
 	
 	/**
 	 * 삭제
 	 * */
-	public int deleteReview(ReviewDTO dto);
+	public void deleteReview(ReviewDTO dto);
 	
 	/**
 	 * 삭제
