@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,11 +33,14 @@ public class Users {
 	private String userName;
 	
 	@OneToOne(mappedBy = "users")
+	@JsonIgnore
 	private UserPoint userPoint;
 	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "users" , cascade = CascadeType.REMOVE  , orphanRemoval = true)
+	@JsonIgnore
 	private List<Review> review;
 	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "users" , cascade = CascadeType.REMOVE  , orphanRemoval = true)
+	@JsonIgnore
 	private List<UserPointStatus> userPointStatus;
 }

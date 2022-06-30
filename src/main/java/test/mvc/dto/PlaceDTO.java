@@ -1,5 +1,6 @@
 package test.mvc.dto;
 
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,13 +12,10 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDTO {
+public class PlaceDTO {
 
-
-	private String reviewId;
-	private String content;
-	private String [] attachedPhotoIds;
-	private String userId;
 	private String placeId;
-
+	private String reviewCheck;
+	private List<ReviewDTO> reviews;
+	
 }

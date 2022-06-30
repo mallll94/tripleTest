@@ -9,6 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>ddd</h1>
+<h1>나의 포인트 현황</h1>
 </body>
 </html>

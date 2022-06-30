@@ -16,6 +16,8 @@ import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,8 +40,10 @@ public class UserPoint {
 	
 	@OneToOne
 	@JoinColumn(name = "user_id")
+	@JsonIgnore
 	private Users users;
 	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "userPoint" , cascade = CascadeType.REMOVE  , orphanRemoval = true)
+	@JsonIgnore
 	private List<UserPointStatus> userPointStatus;
 }

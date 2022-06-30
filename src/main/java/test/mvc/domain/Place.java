@@ -17,6 +17,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Setter
 @Getter
@@ -28,9 +30,10 @@ public class Place {
 	private String placeId;
 	
 	@Column//0이면 최초 등록 1이면 기존 등록
-	private int reviewCheck;
+	private String reviewCheck;
 	
 	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "place" , cascade = CascadeType.REMOVE  , orphanRemoval = true)
+	@JsonIgnore
 	private List<Review> reviews;
 	
 }

@@ -11,13 +11,11 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDTO {
+public class UserPointStatusDTO {
 
-
-	private String reviewId;
-	private String content;
-	private String [] attachedPhotoIds;
-	private String userId;
-	private String placeId;
-
+	private Long userPointStateId;
+	private UsersDTO users;
+	private UserPointDTO userPoint;
+	private String status;
+	
 }

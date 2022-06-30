@@ -22,7 +22,7 @@ public class QPlace extends EntityPathBase<Place> {
 
     public final StringPath placeId = createString("placeId");
 
-    public final NumberPath<Integer> reviewCheck = createNumber("reviewCheck", Integer.class);
+    public final StringPath reviewCheck = createString("reviewCheck");
 
     public final ListPath<Review, QReview> reviews = this.<Review, QReview>createList("reviews", Review.class, QReview.class, PathInits.DIRECT2);
 

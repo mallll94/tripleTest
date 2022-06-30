@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,10 +31,12 @@ public class UserPointStatus {
 	
 	@ManyToOne
 	@JoinColumn(name = "users_fk")
+	@JsonIgnore
 	private Users users;
 	
 	@ManyToOne
 	@JoinColumn(name = "userPoint_fk")
+	@JsonIgnore
 	private UserPoint userPoint;
 	
 	@Column
