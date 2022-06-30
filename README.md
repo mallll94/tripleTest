@@ -22,6 +22,8 @@ ___
 
 ### 실행방법
 
+**0.혹시 프로젝트를 푸쉬받은 후 이유 없는 에러가 있다면 querydsl 설치후 에러일 경우가 있다. 그러므로 maven 업데이트가 필요한 경우 일수 있다. 이러한 경우 Quick fix을 사용해 해결할수 있다.**
+
 **1.application.properties에서 spring.datasource.url=jdbc:mysql://localhost:3306/(스키마생성된걸로)?useSSL=false#&?useUnicode=yes&characterEncoding=utf8**
 
 <img src="https://user-images.githubusercontent.com/98471267/176724045-f785facf-1db0-483c-a996-27b7a3862543.JPG" width="200" height="200">
