@@ -27,7 +27,7 @@ $(function(){
 			type:"post",
 			traditional: true,
 			dataType:"json",
-			data: {userId: "3ede0ef2-92b7-4817-a5f3-0c575361f745", placeId: "2e4baf1c-5acb-4efb-a1af-eddada31uuuu"},
+			data: {userId: "3ede0ef2-92b7-4817-a5f3-0c575361f745", placeId: "2e4baf1c-5acb-4efb-a1af-eddada31b00f"},
    			success :function(result){
    				
    				var status = "<table >";
@@ -61,7 +61,7 @@ $(function(){
 				$("#table").html(review);
 				$("#point").html("내 포인트 : "+result.myPoint);
 				$("#status").html(status);
-				
+				$("#id").html("userId : "+$("#userid").val())
    				},error : function(request,status,error){  
    					//alert(1)
    					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -78,11 +78,11 @@ $(function(){
 			dataType:"text",
 			data: {type: "REVIEW",
 				action: action,
-				reviewId: "240a0658-dc5f-4878-9381-ebb7b26671233",
+				reviewId: "240a0658-dc5f-4878-9381-ebb7b26671235",
 				content: content,
 				attachedPhotoIds: photos,
 				userId: id,
-				placeId: "2e4baf1c-5acb-4efb-a1af-eddada31uuuu"},
+				placeId: "2e4baf1c-5acb-4efb-a1af-eddada31b00f"},
    			success :function(result){
    				selectAll();
    				},error : function(request,status,error){  
@@ -111,7 +111,7 @@ $(function(){
 
 <h1>트리플 마일리지서비스 테스트</h1>
 <hr>
-<h3><span id ="id">userId : 3ede0ef2-92b7-4817-a5f3-0c575361f745</span></h3>
+<h3><span id ="id"></span></h3>
 <h3><span id="point"></span></h3>
 <hr>
 <h3>포인트 이력</h3>

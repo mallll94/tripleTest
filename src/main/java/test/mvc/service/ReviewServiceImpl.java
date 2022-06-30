@@ -195,8 +195,16 @@ public class ReviewServiceImpl implements ReviewService {
 			review.getPlace().setReviewCheck(null);
 			point -=1;
 		}
-		if(review.getContent()!=null||!review.getContent().equals(""))point-=1;
-		if(review.getAttachedPhotoIds() !=null||!review.getAttachedPhotoIds().equals(""))point-=1;
+		if(review.getContent()==null||review.getContent().equals("")) {
+			point+=0;
+		}else {
+			point-=1;
+		}
+		if(review.getAttachedPhotoIds() ==null||review.getAttachedPhotoIds().equals("")) {
+			point+=0;
+		}else {
+			point-=1;
+		}
 
 		return point;
 	}
